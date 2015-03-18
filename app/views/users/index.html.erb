@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<h2>Listing users</h2>
+		
+			
+		
+
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td><h5>First name</h5></td>
+					<td><h5>Last name</h5></td>
+					<td><h5>Email</h5></td>
+				</tr>
+			<thead>
+			<tbody>
+			<% @users.each do |user| %>
+				<tr>
+					<td><%=user.first_name%></td>
+					<td><%=user.last_name%></td>
+					<td><%=user.email_address%></td>
+				</tr>
+			<%end%>
+			</tbody>
+		</table>
+	</div>
+</div>
