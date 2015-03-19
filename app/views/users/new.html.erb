@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<h3>New user</h3>
+		<form action="/users" method="post">
+			<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+			<div class="form-group">
+				<label>First name</label>
+				<input type="text" class="form-control" name="user[first_name]" >
+			</div>
+			<div class="form-group">
+				<label>Last name</label>
+				<input type="text" class="form-control" name="user[last_name]" >
+			</div>
+			<div class="form-group">
+				<label>Email</label>
+				<input type="email" class="form-control" name="user[email_address]">
+			</div>	
+			<div class="form-group">
+				<label>Password</label>
+				<input type="password" class="form-control" name="user[password]" >
+			</div>
+			<div class="form-group">
+				<label>Confirm password</label>
+				<input type="password" class="form-control" name="user[confirm_password]" >
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+			<a class="btn btn-primary" href="/users">Back</a>
+		</form>
+
+	<%if flash[:errors] %>
+		<% flash[:errors].each do |error|%>
+			<h5 class="alert alert-danger"><%=error%></h5>
+		<% end %>
+	 <% end %>
+
+	<%if flash[:success] %>	
+			 <h5 class="alert alert-success"><%=flash[:success]%></h5>
+	 <% end %>
+
+	</div>
+</div>
