@@ -7,6 +7,7 @@
 					<td><h5>First name</h5></td>
 					<td><h5>Last name</h5></td>
 					<td><h5>Email</h5></td>
+					<td><h5>Action</h5></td>
 				</tr>
 			<thead>
 			<tbody>
@@ -15,11 +16,22 @@
 					<td><%=user.first_name%></td>
 					<td><%=user.last_name%></td>
 					<td><%=user.email_address%></td>
+					<td><a class="btn btn-primary" href="/user/<%=user.id%>">Show</a> <a class="btn btn-danger" href="/user/delete/<%=user.id%>">Delete</a> <a class="btn btn-primary" href="/user/<%=user.id%>/edit">Edit</a></td>
 				</tr>
 			<%end%>
 			</tbody>
 		</table>
 		<a href="/users/new" class="btn btn-primary">New user</a>
-		
+		<%if flash[:errors] %>
+		<% flash[:errors].each do |error|%>
+			<h5 class="alert alert-danger"><%=error%></h5>
+		<% end %>
+	 <% end %>
+
+	<%if flash[:success] %>	
+			 <h5 class="alert alert-success"><%=flash[:success]%></h5>
+	 <% end %>
+
+
 	</div>
 </div>
